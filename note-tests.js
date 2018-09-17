@@ -20,7 +20,6 @@ function testAddNote() {
   var list = new List();
   var note = new Note("Just a new todo")
   list.addNote(note);
-  // console.log(list.notes[0].text);
   assert.equal(list.notes[0].text === "Just a new todo");
 };
 testAddNote();
@@ -32,10 +31,21 @@ function testShowList() {
   var note2 = new Note("Another todo")
   list.addNote(note1);
   list.addNote(note2);
-  // console.log(list.notes[0].text);
-  assert.equal(list.notes[0].text === "Just a new todo");
-  assert.equal(list.notes[1].text === "Another todo");
-  assert.equal(list.notes.length === 2);
+  assert.equal(list.showNotes()[0].text === "Just a new todo");
+  assert.equal(list.showNotes()[1].text === "Another todo");
+  assert.equal(list.showNotes().length === 2);
 };
 testShowList();
+console.log('test passed');
+
+function returnsHTML() {
+  var view = new View();
+  var list = new List();
+  var note1 = new Note("N1")
+  var note2 = new Note("N2")
+  list.addNote(note1);
+  list.addNote(note2);
+  assert.equal(view.arrayToHTML(list.showNotes()) === "<ul><li>N1</li><li>N2</li></ul>");
+};
+returnsHTML();
 console.log('test passed');
