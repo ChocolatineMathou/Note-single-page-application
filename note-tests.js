@@ -6,15 +6,12 @@ function testText() {
 testText();
 console.log('test passed');
 
-// function testArray() {
-//   var list = new List();
-//   // var note1 = new Note("Note 1");
-//   // var note2 = new Note("Note 2");
-//   console.log(list.notes);
-//   assert.equal(list.notes == [])
-// };
-// testArray();
-// console.log('test passed');
+function testArray() {
+  var list = new List();
+  assert.equal(list.notes.constructor == Array)
+};
+testArray();
+console.log('test passed');
 
 function testAddNote() {
   var list = new List();
